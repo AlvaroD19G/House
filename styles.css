@@ -1,0 +1,100 @@
+*{
+    margin: 0 ;
+    padding: 0;
+}
+.General{
+display: grid;
+place-content: center;
+margin-top: 10%;
+}
+.mac{
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+    color: #fff;
+    height: 40px;
+    text-align: center;
+}
+nav{
+    background-color:#beb3b3(158, 43, 43) !important;
+    
+}
+.list{
+    display: flex;
+    list-style: none;
+   justify-content:space-between;
+
+}
+.list li i{
+    font-size: 40px;
+    
+}
+.list li i{
+    font-size: 40px;
+    
+}
+.login-container {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    
+}
+
+.login-form h2 {
+    text-align: center;
+    justify-content: center;
+}
+
+.input-group {
+    margin: 10px 0;
+}
+
+.input-group label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+/* Estilos para organizar los botones en línea */
+.login-form .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.login-form button {
+    width: 48%; /* Ajusta el ancho según tus preferencias */
+}
+.login-form .register_btn {
+    width: 48%; /* Ajusta el ancho según tus preferencias */
+}

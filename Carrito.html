@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Carrito de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="carrito.css">
+     <script src="carrito.js" async></script> 
+    <style>
+         header {
+            width: 100%;
+            background-color: rgb(212, 47, 47); 
+            padding: 10px 0;
+            color: #0a0909;
+            text-align: center;
+        }
+        .bi-person:hover, .bi-house:hover{
+            font-size: 18px;
+            
+        }
+        .navbar-text{
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+
+<body>
+   
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="Inicio.html">
+                        <i class="bi-house"></i>
+                    </a>
+                    
+                     <span class="navbar-text">SUSHI HOUSE</span>
+                     <a href="#"">
+                        <i class="bi-person"onclick = "redirigir()"></i>
+                     </a>
+                     
+                        
+                   
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="carrito">
+        <div class="carrito-items" id="carrito-items" >
+ <!-- AQUI IRA LLENANDO EL CARRITO CODIGO PARA LLENAR ABAJO EN EL SCRIPT -->
+ 
+ 
+
+        </div>
+    </div>
+
+   
+    
+            
+    
+    <div class="container2">
+        <section class="row">
+            <section class="metodopagocol-3">
+                    <h4>Metodo de Pago</h4>
+                    <div class="metodos-pago">
+                        <label  for="Metodopago"></label>
+                        <select id="metodopago" >
+                        <option value="tarjeta">Tarjeta</option>
+                        <option value="sinpemovil">Sinpe Movil</option>
+                        <option value="efectivo">Efectivo</option>
+                         </select>
+                   </div>
+                </section>
+                <section class="tipoentregacol-3">
+                    <h4>Tipo de Entrega</h4>
+                    <div class="Tipo-Entrega">
+                        <label  for="tipoEntrega"></label>
+                        <select id="tipoEntrega" onchange="actualizarCostoEntrega()">
+                        <option value="RetiroLocal">Retiro en el local</option>
+                        <option value="Express">Express</option>
+                         </select>
+                        
+                   </div>
+                    
+                </section>
+                
+                <section class="resumencol-3">
+                    <!-- Total del carrito -->
+                    
+
+                    <div id="carrito-total">
+                        <p>Subtotal: <span id="Subtotal">₡0.00</span></p>
+                        <p >Envio: <span id="Envio">₡0.00</span></p>
+                        <div class="montototal">
+                            <strong>Total: <span id="Total">₡0.00</span></strong>
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+            
+            </section>
+            
+    </div>
+    <div class="pago"> <button  id="btnpagarcarrito" class="btn-pagar">Pagar  <i class="bi-bag"></i> </button>
+    </div>
+
+    <div class="modal" id="modalTarjeta">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Detalles de la Tarjeta</h2>
+            <!-- Formulario para agregar detalles de tarjeta -->
+            <form id="formularioTarjeta">
+                <label for="numeroTarjeta">Número de Tarjeta:</label>
+                <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+    
+                <label for="nombreTitular">Nombre del Titular:</label>
+                <input type="text" id="nombreTitular" name="nombreTitular" required>
+    
+                <label for="fechaExpiracion">Fecha de Expiración:</label>
+                <input type="text" id="fechaExpiracion" name="fechaExpiracion" placeholder="MM/AA" required>
+    
+                <label for="codigoSeguridad">Código de Seguridad:</label>
+                <input type="text" id="codigoSeguridad" name="codigoSeguridad" required>
+    
+                <button type="submit">Pagar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modalsinpe">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+                    <h2>Hemos Recibido tu Pedido</h2>
+                    <p>Sinpe movil: 8888-8888</p>
+                        <p>Por favor enviar comprobante por whatsapp </p>
+                        <p>Gracias por Preferirnos!</p>
+                      <button onclick="cerrarModal()" type="submit">Cerrar</button>   
+        </div>
+    </div>
+
+    <div class="modal" id="modalefectivo">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Hemos Recibido tu Pedido</h2>
+            <p>Sinpe movil: 8888-8888</p>
+                <p>Pronto llegará tu orden</p>
+                <p>Info: 8888-8888</p>
+                <p>Gracias por Preferirnos!</p>
+                <button onclick="cerrarModal()"  type="submit">Cerrar</button>
+        </div>
+    </div>
+    
+   <script>
+// Función para mostrar los productos del carrito
+function mostrarProductosEnCarrito() {
+            // Obtén el contenedor donde deseas mostrar los productos del carrito
+            const contenedorCarrito = document.getElementById('carrito-items');
+
+            // Obtén el carrito actual del localStorage
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Limpiar el contenido actual en el contenedor
+            contenedorCarrito.innerHTML = '';
+
+            // Itera sobre los productos del carrito y crea elementos HTML para cada uno
+            carrito.forEach((producto, index) => {
+                const productoDiv = document.createElement('div');
+                productoDiv.className = 'carrito-item';
+               // product.cantidad= 1;
+
+                // Agrega contenido específico para cada producto
+                productoDiv.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}" width="80px">
+                    
+                    <div class="item-titulo">
+                    <span class="carrito-item-titulo">${producto.nombre}</span>
+                   </div>
+                    <div class="selector-cantidad">
+                        <span class="btn-restar" onclick="restarCantidad(${index})"><i class="bi-dash"></i></span>
+                        <input type="text" value="${producto.cantidad}" class="carrito-item-cantidad" disabled>
+                        <span class="btn-sumar" onclick="sumarCantidad(${index})"><i class="bi-plus"></i></span>
+                        
+                    </div>
+                    <span class="carrito-item-precio">${producto.precio}</span>
+
+                    <span class="btn-eliminar" onclick="eliminarProducto(${index})"> <i class="bi-trash"></i></span>
+
+                    
+                `;
+             
+                // Agrega el elemento al contenedor
+                contenedorCarrito.appendChild(productoDiv);
+                
+               
+            });
+            calcularMontoTotal();
+        }
+
+        // Funciones para interactuar con la cantidad y eliminar productos del carrito
+        function restarCantidad(index) {
+            // Obtén el carrito actual del localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verifica que haya productos en el carrito
+            if (carrito.length > 0) {
+                // Resta la cantidad del producto en la posición index
+                carrito[index].cantidad = Math.max(1, carrito[index].cantidad - 1);
+
+                // Guarda el carrito actualizado en localStorage
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+
+                // Vuelve a mostrar los productos en el carrito
+                mostrarProductosEnCarrito();
+            }
+        }
+
+        function sumarCantidad(index) {
+            // Obtén el carrito actual del localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verifica que haya productos en el carrito
+            if (carrito.length > 0) {
+                // Suma la cantidad del producto en la posición index
+                carrito[index].cantidad += 1;
+
+                // Guarda el carrito actualizado en localStorage
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+
+                // Vuelve a mostrar los productos en el carrito
+              
+                mostrarProductosEnCarrito();
+                
+            }
+        }
+
+        function eliminarProducto(index) {
+            // Obtén el carrito actual del localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verifica que haya productos en el carrito
+            if (carrito.length > 0) {
+                // Elimina el producto en la posición index del carrito
+
+                carrito.splice(index, 1);
+
+                // Guarda el carrito actualizado en localStorage
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+
+                // Vuelve a mostrar los productos en el carrito
+                
+                mostrarProductosEnCarrito();
+            }
+            calcularMontoTotal();
+        }
+
+        // Llama a la función para mostrar los productos en el carrito al cargar la página
+        mostrarProductosEnCarrito();
+        // Función para calcular el monto total del carrito
+function calcularMontoTotal() {
+    // Obtén el carrito actual del localStorage
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Inicializa el monto total en cero
+    let montoTotal = 0;
+    let montoSubtotal =0;
+
+    // Itera sobre los productos en el carrito y suma el monto total
+    carrito.forEach(producto => {
+        // Convierte el precio a formato numérico eliminando el símbolo de colón
+        const precioNumerico = parseFloat(producto.precio.replace('₡', ''));
+
+        // Suma el producto del precio por la cantidad al monto total
+        montoTotal += precioNumerico * producto.cantidad;
+        montoSubtotal= montoTotal;
+    });
+    
+    const totalElement = document.getElementById('Total');
+    totalElement.textContent =  "₡" + montoTotal.toFixed(2);
+    const subtotalElement = document.getElementById('Subtotal');
+    subtotalElement.textContent =  "₡" + montoSubtotal.toFixed(2);
+    const subtotal= parseFloat(subtotalElement.textContent.replace("₡", ""));
+    const envioElement = document.getElementById("Envio");
+    const costoEntrega = parseFloat(envioElement.textContent.replace("₡", ""));
+    const montototal = subtotal + costoEntrega;
+
+    // Actualizar el elemento HTML con el nuevo valor del total
+    totalElement.textContent = "₡" + montototal.toFixed(2);
+
+   
+}
+
+// Función para actualizar el costo de entrega
+function actualizarCostoEntrega() {
+  const tipoEntregaSelect = document.getElementById("tipoEntrega");
+  const selectedOption = tipoEntregaSelect.options[tipoEntregaSelect.selectedIndex].value;
+
+  // Lógica para calcular el costo de entrega según la opción seleccionada
+  var costoEntrega = 0;
+
+  if (selectedOption === "RetiroLocal") {
+      costoEntrega = 0; // Por ejemplo, no hay costo de entrega para retiro local
+  } else if (selectedOption === "Express") {
+      costoEntrega = 1000; // Por ejemplo, 1000 de costo de entrega para envío express
+  }
+
+  // Actualizar los elementos HTML con los nuevos valores
+  const envioElement = document.getElementById("Envio");
+  envioElement.textContent = "₡" + costoEntrega.toFixed(2);
+
+  calcularMontoTotal();
+}
+ // Agregar evento de cambio al selector de tipo de entrega
+ const tipoEntregaSelect = document.getElementById("tipoEntrega");
+ tipoEntregaSelect.addEventListener("change", actualizarCostoEntrega);
+ calcularMontoTotal(); 
+   </script>
+
+</body>
+
+</html>

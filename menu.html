@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="menu.css">
+    
+    <script src="menu.js"async></script>
+    <style>
+        header {
+            width: 100%;
+            background-color: rgb(212, 47, 47); 
+            padding: 10px 0;
+            color: #0a0909;
+            text-align: center;
+        }
+        .bi-person:hover, .bi-house:hover{
+            font-size: 18px;
+            
+        }
+        .container2{
+            width: 25%;
+            margin: auto;
+            height: 20%;
+        }
+        .navbar-text{
+            font-size: 18px;
+        }
+        .logo img{
+            width: 35%;
+        }
+        .logo{
+            position: fixed;
+            top:90px;
+            left:1px;
+            width: 50%;
+            margin: auto;
+            
+        }
+      
+        .Carrito {
+            position: fixed;
+            top:525px;
+            left:1100px;
+            width: 100%;
+            margin: auto;
+            
+        }
+        .carritocomprasboton img:hover{
+            box-shadow: 0 0 10px #fff;
+          scale: 1.05;
+            cursor: pointer;
+            border-radius: 5px;
+
+        }
+        /* Estilo para ocultar el elemento con la descripción por defecto */
+.hidden {
+    display: none;
+}
+        
+
+
+        .carritocomprasboton img {
+            width: 100px; /* Ajusta el tamaño según sea necesario */
+            height: auto; /* Mantiene la proporción original de la imagen */
+            
+        }
+            </style>
+  
+</head>
+
+
+<body>
+    <header> 
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="Inicio.html">
+                        <i class="bi-house"></i>
+                    </a>
+                    
+                     <span class="navbar-text">SUSHI HOUSE</span>
+                     <a href="Login.html">
+                        <i class="bi-person"onclick = "redirigir()"></i>
+                     </a>
+                        
+                   
+                </div>
+            </nav>
+        </div>
+        </header>
+    
+       
+<section class="contenedor">
+    
+    <div class="contenedor-items"> 
+        <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)" >
+            <span class="titulo-item">KIOTO ROLL</span>
+            <img src="images/kiotoroll.PNG" alt="sushi1" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Salmón fresco, aguacate, cangrejo mix y queso crema por dentro; salsa spicy y
+                     mayo glaze de soya y raspadura por encima
+                </span>
+            </div>
+            <span class="precio-item">₡5000.00</span>  
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/kiotoroll.PNG','KIOTO ROLL', 5000)">Agregar al Carrito</button> 
+
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item"> TOY ROLL</span>
+            <img src="images/toyroll.PNG" alt="toyroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Camarón rebozado, aguacate y mezcla de kani tai por dentro y por fuera, kronchi,ajonjolí blanco,
+                    salsa spicy mayo glaze de soya
+                </span>
+            </div>
+            <span class="precio-item">₡4500.00</span>
+
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/toyroll.PNG','TOY ROLL', 4500)">Agregar al Carrito</button>
+
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">SENSEI ROLL</span>
+            <img src="images/senseiroll.PNG" alt="senseiroll class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Salmón fresco, queso, crema , espárrago y mezcla de kani tai por dentro, aguacate por fuera
+                </span>
+            </div>
+            <span class="precio-item">₡4800.00</span>
+
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/senseiroll.PNG','SENSEI ROLL', 4800)">Agregar al Carrito</button>
+
+    </div>
+       <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">FURIA ROLL</span>
+            <img src="images/furiaroll.PNG" alt="furiaroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Salmón apanado, aguacate, queso crema y kronchi por dentro por fuera salmón ahumado, 
+                    platano maduro con salsa dulce y salsa chipotle por encima
+                </span>
+            </div>
+            <span class="precio-item">₡5500.00</span>
+
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/senseiroll.PNG','SENSEI ROLL', 5500)">Agregar al Carrito</button>
+
+    </div>
+    <div class="producto">
+
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">BANG BANG ROLL</span>
+            <img src="images/bangbangroll.PNG" alt="nangbangroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Salmón fresco, cangrejo apanado, tuna fresca y queso crema por dentro, topping de kronchi por fuera
+                    con salsa spicy mayo, salsa de anguila y anjonjolí negro por encima
+                </span>
+            </div>
+            <span class="precio-item">₡6500.00</span>
+
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/bangbangroll.PNG','BANG BANG ROLL', 6500)">Agregar al Carrito</button>
+
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">KE SUSHI ROLL</span>
+            <img src="images/kesushiroll.PNG" alt="kesushiroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Rollo tempurizado con plátano camarón rebozado, atún fresco y queso crema por dentro, topping de cangrejo
+                    mix anjonjolí negro y salsa de anguila por encima
+                </span>
+            </div>
+            <span class="precio-item">₡5700.00</span>
+
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/kesushiroll.PNG','KE SUSHI ROLL', 5700)">Agregar al Carrito</button>
+
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">PAPI ROLL</span>
+            <img src="images/soytupapiroll.PNG" alt="soytupapiroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Salmón fresco, aguacate y wakame, spicy mayo y masago por dentro, por fuera salmón
+                    fresco con topping de cangrejo mix, salsa maracuyá y un toque de wasabi mix
+                </span>
+            </div>
+            <span class="precio-item">₡5500.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/soytupapiroll.PNG','PAPI ROLL', 5500)">Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">YASAI ROLL</span>
+            <img src="images/yasairoll.PNG" alt="yasairoll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Lechuga, pepino, aguacate, queso crema, baby corn por dentro, por fuera zanahoria, glaze de soya y 
+                    raspadura con salsa spicy mayo encima
+                </span>
+            </div>
+            <span class="precio-item">₡4500.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/yasairoll.PNG','YASAI ROLL', 4500)">Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">SPICY ROLL</span>
+            <img src="images/spicyroll.PNG" alt="spicyroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Tuna fresca, aguacate, queso crema por dentro, por fuera tartar de atún, glaze de soya y raspadura
+                    con jalapeño en rebanadas encima
+                </span>
+            </div>
+            <span class="precio-item">₡6000.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/spicyroll.PNG','SPICY ROLL', 6000)">Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">GURU ROLL</span>
+            <img src="images/gururoll.PNG" alt="gururoll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Camarón rebozado, atún fresco y queso crema por dentro, por fuera plátano tempurizado 
+                    con topping de cangrejo mix, ajonjolí negro y salsa de anguila
+                </span>
+            </div>
+            <span class="precio-item">₡5000.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/gururoll.PNG','GURU ROLL', 5000)">Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">KRAZY ROLL</span>
+            <img src="images/krazyroll.PNG" alt="krazyroll" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Cangrejo mix, salmón fresco y aguacate por dentro, por fuera apanado con topping de cangrejo 
+                    y masago.
+                </span>
+            </div>
+            <span class="precio-item">₡4500.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/krazyroll.PNG','KRAZY ROLL', 4500)">Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">BIG KRONCHI ROLL</span>
+            <img src="images/bigkronchy.PNG" alt="bigkronchy" class="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Salmón fresco, cangrejo apanado, tuna fresca y queso rema por dentro, por fuera anjonjolí
+                    negro con topping de kronchi, spicy mayo y salsa de anguila
+                </span>
+            </div>
+            <span class="precio-item">₡4900.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/bigkronchy.PNG','BIG KRONCHI ROLL', 4900)">Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+        <div class="items" onclick="toggleDescripcion(this, true)" onmouseleave="toggleDescripcion(this, false)">
+            <span class="titulo-item">QUINOA VEGGIE ROLL</span>
+            <img src="images/quinoviguieroll.PNG" alt="quinoviguierollclass="img-item">
+            <div class="descripcionpro hidden">
+                <span class="descripcionp">
+                    Delicioso Roll de vegetales tempura, espárragos, tajadacde plátano, pepino popr dentro, por fuera
+                    quinoa blanca, kimchi, cebollino, galze de soya y raspadura con salsa spicy mayo encima
+                </span>
+            </div>
+            <span class="precio-item">₡4900.00</span>
+        </div>
+        <button class="boton-item" onclick="agregarAlCarrito('images/quinoviguieroll.PNG','QUINOA VEGGIE ROLL', 4900)">Agregar al Carrito</button>
+    </div>
+
+</section>
+
+<div class="Carrito">
+    <a class="carritocomprasboton" href="Carrito.html">  
+        <img src="images/carritocompras.png"   alt="carritocompras">
+    </a>
+</div>
+</div>
+<script>
+  
+    function toggleDescripcion(elemento, mostrar) {
+    // Obtener el elemento con la descripción
+    var descripcion = elemento.querySelector('.descripcionpro');
+
+    // Toggle para mostrar/ocultar la descripción
+    if (mostrar) {
+        descripcion.classList.remove('hidden');
+    } else {
+        descripcion.classList.add('hidden');
+    }
+}
+
+
+</script>
+
+
+
+
+
+</body>
+
+
+</html>

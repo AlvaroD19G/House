@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reseñas</title>
+    <link rel="stylesheet" href="Inicio.css">
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/ea0e90e796.js" crossorigin="anonymous"></script>
+    <style>
+        header {
+            width: 100%;
+            background-color: rgb(212, 47, 47); 
+            padding: 10px 0;
+            color: #0a0909;
+            text-align: center;
+        }
+        .General{
+            background-color: #fff;
+            
+        }
+        .ImaInfo{
+            background-size: 80%;
+        }
+        .Descripcion, .Info{
+            font-size: 18px;
+        }
+        .Descripcion{
+            margin-top: 40%;
+        }
+        
+        .row{
+            justify-content: center;
+            text-align: center;
+            margin-top: 2%;
+        }
+
+        .bi-person:hover, .bi-house:hover{
+            font-size: 18px;
+            
+        }
+        .navbar-text{
+            font-size: 18px;
+        }
+            </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="Inicio.html">
+                        <i class="bi-house"></i>
+                    </a>
+                    
+                     <span class="navbar-text">SUSHI HOUSE</span>
+                     <a href="#"">
+                        <i class="bi-person"onclick = "redirigir()"></i>
+                     </a>
+                     
+                        
+                   
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="General">
+    <section class="row">
+
+    
+    <section class="col-4">
+        <div class="container">
+            <div class="reviews-container">
+                <h2>Reseñas</h2>
+
+                <!-- Tarjetas de reseñas -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="card-text">Excelente servicio. ¡Recomendado!</p>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="card-text">Muy buena comida y atención al cliente.</p>
+                    </div>
+                </div>
+
+                <!-- Nueva reseña -->
+                <div class="card mb-3" id="newReviewCard" style="display: none;">
+                    <div class="card-body">
+                        <p class="card-text" id="newReviewCardContent"></p>
+                    </div>
+                </div>
+
+                <div class="new-review-container">
+                    <textarea class="form-control mb-2" id="newReviewText" rows="3"
+                        placeholder="Escribe tu reseña"></textarea>
+                    <button type="button" class="btn btn-primary" onclick="addNewReview()">Añadir Reseña</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="col-6">
+        <div class="ImaInfo">
+          
+          
+            <!-- <img src="images/Logo.jpeg"  class="logo-image" alt=" "> -->
+            <div class="Info">
+            
+            <p>
+                Escribir una reseña es fácil. Solo toma unos minutos, pero su impacto puede ser 
+                duradero. Haz clic en "Añadir Reseña" y comparte tu experiencia. ¿Fue el servicio 
+                excepcional? ¿El producto superó tus expectativas? Cada detalle cuenta.
+
+            </p>
+            </div>
+           
+            <div class="Descripcion">
+                <span class="texto">
+
+                    En agradecimiento a tu tiempo y esfuerzo, cada reseña contribuye a construir una comunidad más 
+                    fuerte y a mejorar continuamente. Como muestra de aprecio, seleccionaremos aleatoriamente reseñas
+                     para sorpresas y descuentos exclusivos.
+                     Tu opinión es fundamental para nosotros. Hazte oír, comparte tus pensamientos y sé parte de la 
+                     historia. Juntos, creamos experiencias memorables.
+                    
+                    
+                </span>
+                
+         </div>
+      </div>
+        
+    </section>
+</section>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function addNewReview() {
+            var newReviewText = document.getElementById('newReviewText').value;
+
+            if (newReviewText.trim() !== '') {
+                // Mostrar la nueva tarjeta de reseña
+                document.getElementById('newReviewCardContent').innerText = newReviewText;
+                document.getElementById('newReviewCard').style.display = 'block';
+
+                // Limpiar el cuadro de texto
+                document.getElementById('newReviewText').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

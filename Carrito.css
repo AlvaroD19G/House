@@ -1,0 +1,284 @@
+header{
+    font-family: Arial, sans-serif;
+    background-color: #ec0d0d;
+    text-align: center;
+}
+.detallecarrito{
+    color: #000
+    ;
+}
+.boton-regreso {
+    font-size: 30px;
+    background: transparent;
+    position: fixed;
+    top: 10;
+    left: 0;
+    z-index: 999; /* Para que esté en la parte superior de otros elementos */
+    padding: 10px 20px; /* Espaciado del botón */
+    border: none;
+    cursor: pointer;
+  }
+  
+  .boton-regreso:hover {
+    background-color: transparent; /* Cambio de color al pasar el mouse */
+  }
+
+        /* Estilos generales */
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        
+    }
+       /* Estilos para el carrito de compras */
+         /* Estilos para el carrito */
+    .carrito {
+        border: 1px solid red;
+        top: 0;
+        width: 700px;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        position: sticky !important;
+        
+        overflow:  hidden;
+        
+    }
+    .carrito .carrito-item{
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: 2px solid #666;
+        padding: 30px;
+    }
+    
+
+    .carrito .carrito-item img{
+        width: 20%;
+        margin-right: 25px;
+    }
+    .carrito-item .item-titulo{
+        text-align: right;
+        size: 40px;
+    }
+    .item-titulo{
+        size: 80px;
+    }
+    .carrito .carrito-item .carrito-item-titulo{
+        font-size: 25px;
+        display: flex;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding: 10px;
+       
+        text-transform: uppercase;
+    }
+    .carrito .carrito-item .selector-cantidad{
+        padding: 10px;
+        font-size: 24px;
+        display: flex;
+        margin-right: 25px;
+        text-align: center;
+        top: 25px;
+        
+    }
+    .carrito .carrito-items .selector-cantidad .bi-dash{
+        
+        border: 2px solid #000;
+            border-radius: 75%;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+
+    }
+    .carrito .carrito-items .selector-cantidad .bi-plus{
+        
+        border: 2px solid #000;
+            border-radius: 75%;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+
+    }
+    .carrito .carrito-items .btn-eliminar{
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color:#000;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: 40px;
+        border-radius: 75%;
+        border: 2px solid #000;
+        cursor: pointer;
+        display: block;
+        background: transparent;
+        z-index: 20;
+        text-align: center;
+    }
+   
+    
+    .carrito .carrito-items .carrito-item-cantidad{
+        border: none;
+        font-size: 20px;
+        background: transparent;
+        display: inline-block;
+        width: 30px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .carrito .carrito-items .carrito-item-precio{
+        
+
+        font-weight: bold;
+        display: inline-block;
+        font-size: 18px;
+        margin-bottom: 8px;
+        margin-top: auto;
+        
+    }
+    
+    /* Estilos para el contenedor1 */
+    .container2 {
+        border: 1px solid red;
+        max-width: 700px;
+        margin: 1px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        display: flexbox;
+
+        
+       
+    }
+
+     /* Estilos para las columnas */
+    .metodopagocol-3 {
+        width: 30%;
+        float: left;
+        padding: 10px;
+        font-size: 1.2rem;
+        text-align: left;
+        margin: 0 auto;
+    }
+    .tipoentregacol-3{
+        width: 30%;
+        float: left;
+        padding: 10px;
+        font-size: 1.2rem;
+        text-align: left;
+        margin: 0 auto;
+    }
+    
+    .resumencol-3{
+       
+        width: 30%;
+        float: left;
+        padding: 10px;
+        font-size: 1.2rem;
+        text-align: left;
+        margin: 0 auto;
+    }
+    .btn-pagar{
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .btn-pagar:hover{
+        background-color: #000;
+        transform: scale(1.1);
+    }
+    .pago{
+text-align: center;
+    }
+    /* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilos adicionales según tus necesidades */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button{
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+button:hover{
+    background-color: #000;
+    transform: scale(1.1);
+}
+btn-eliminar{
+    cursor: pointer;
+}
+nombre-producto{
+    bottom: 40px;
+
+}
+selector-cantidad{
+    display: flex;
+}
+
+/*FIN MODAL TARJETA*/
+    
+    

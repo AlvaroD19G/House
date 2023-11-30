@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-eAq1S5A1d3L2t3rXoAExjYF5VrZqI6q5KktTxIi2r2F" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .rating-stars {
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        header {
+            width: 100%;
+            background-color: rgb(212, 47, 47); 
+            padding: 10px 0;
+            color: #0a0909;
+            text-align: center;
+        }
+        .MontoPagar{
+            display: flex;
+            padding: 1%;
+            margin: auto;
+        }
+        .btn-pagar{
+            width: auto;
+            background-color:#666;
+            color:#000;
+            margin: auto;
+            border-radius: 10px;
+            padding: auto;
+            cursor: pointer;
+            
+        }
+        .MontoPagar{
+            justify-content: end;
+        }
+        .Info{
+
+            text-align: center;
+            margin-top: 2%;
+
+        }
+        .Descripcion{
+            margin-top: 49%;
+            text-align: center;
+        }
+        .pago{
+            margin: auto;
+            padding: auto;
+            justify-content: center;
+            margin-top: 2%;
+        }
+        .btn-pagar:hover{
+            box-shadow: 0 0 10px #000;
+           scale: 1.05;
+
+        }
+        
+        .form-control{
+            width: auto;
+            margin: auto;
+        }
+        .General{
+            justify-content: space-between;
+        }
+        .Reservas{
+            background-color: #fff;
+        }
+        .bi-person:hover, .bi-house:hover{
+            font-size: 18px;
+            
+        }
+        .navbar-text{
+            font-size: 18px;
+        }
+            </style>
+    <title>Sushi House</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="Inicio.html">
+                        <i class="bi-house"></i>
+                    </a>
+                    
+                     <span class="navbar-text">SUSHI HOUSE</span>
+                     <a href="#"">
+                        <i class="bi-person"onclick = "redirigir()"></i>
+                     </a>
+                     
+                        
+                   
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    
+    <div class="General">
+        <section class="row">
+            <section class="col-6">
+           <div class="Reservas">
+           
+                    <h1>Reservas</h1>
+
+                <form id="reservationForm">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha de reserva:</label>
+                    <input type="date" class="form-control" id="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="numesas">Número de Mesas:</label>
+                    <input type="number" class="form-control" id="numesas" oninput="calcularTotal()" required min="0">
+                 
+
+                </div>
+                <div>
+                    <p>
+                        Cada reserva de mesa tiene un costo de ₡5000.00, ese monto se descontará 
+                        del monto total a cancelar de su orden
+                    </p>
+                </div>
+                
+                <div class="MontoPagar">
+                    
+                    <strong>Total<span id="Total"> ₡0.00</span></strong>
+                
+                </div>
+                <div class="pago">
+                    <button type="submit" class="btn-pagar">Reservar</button>
+                </div>
+                
+                
+        </div>
+    
+    </form>
+    
+
+            </section>
+            <section class="col-6">
+                <div class="ImaInfo">
+          
+          
+                   
+                    <div class="Info">
+                    
+                    <p>
+                        Recomendamos realizar reservas con anticipación, especialmente durante los horarios pico y
+                         eventos especiales.
+                         ¿Tienes requisitos especiales o solicitudes? Infórmanos durante la reserva, y haremos todo lo posible para que tu
+                         experiencia sea única.
+                        
+                    </p>
+                    <!-- <img src="images/Logo.jpeg"  class="logo-image" alt=" ">  -->
+                    </div>
+                   
+                    <div class="Descripcion">
+                        <span class="texto">
+                            En Sushi House, cada reserva es una oportunidad para crear momentos memorables. ¡Esperamos darle la
+                            bienvenida y compartir nuestra pasión por el sushi contigo!
+   
+                        </span>
+                        
+                 </div>
+              </div>
+
+
+            </section>
+        </section>
+    </div>
+    <script>
+        
+        function calcularTotal() {
+        // Obtener el valor del número de mesas desde el input
+        var numeroMesas = parseInt(document.getElementById("numesas").value);
+
+        // Verificar que el número de mesas sea un número válido
+        if (!isNaN(numeroMesas) && numeroMesas > 0) {
+            // Calcular el total multiplicando el número de mesas por el costo por mesa
+            var costoPorMesa = 5000.00;
+            var total = numeroMesas * costoPorMesa;
+
+            // Actualizar el contenido del elemento con el ID "Total"
+            document.getElementById("Total").textContent = " ₡" + total.toFixed(2);
+        } else {
+            // Si el número de mesas no es válido, mostrar un mensaje de error
+            document.getElementById("Total").textContent = " ₡0.00";
+        }
+    }
+
+    </script>
+</body>
+
+</html> 
